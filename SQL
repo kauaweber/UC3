@@ -1,0 +1,42 @@
+create table categoria (
+id int primary key auto_increment,
+nome varchar(100) not null
+);
+
+alter table produtos add valor varchar (100);
+
+alter table produtos add id_categoria int not null;
+
+insert into produtos (id, nome, valor, id_categoria) values (1, 'mouse gamer', 220.45, 1), 
+(2, 'carregador', 46.99, 2), (3, 'teclado', 355.00, 3);
+
+insert into usuarios (id, nome, email) values
+(1, 'Ana Souza', 'ana.souza@email.com'),
+(2, 'Carlos Lima', 'carlos.lima@email.com'),
+(3, 'Fernanda Alves', 'fernanda.alves@email.com');
+
+insert into categoria (id, nome) values (1, 'eletronico'), (2, 'eletronico'), (3, 'eletronico');
+
+ALTER TABLE pedidos DROP COLUMN data_pedido;
+
+ALTER TABLE pedidos DROP COLUMN id_usuario;
+
+ALTER TABLE pedidos CHANGE COLUMN id_produto id_categoria INT NOT NULL;
+
+alter table pedidos add nome varchar (100);
+
+DELETE FROM pedidos 
+WHERE id = 3;
+
+INSERT INTO pedidos (id, id_categoria, nome, quantidade) VALUES
+(1, 1, 'mouse gamer', 50),
+(2, 2, 'carregador', 200),
+(3, 3, 'teclado', 120);
+
+SELECT * FROM pedidos;
+
+SELECT * FROM categoria;
+
+SELECT * FROM produtos;
+
+SELECT * FROM usuarios;
